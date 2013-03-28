@@ -300,7 +300,10 @@ def geocode_landnr(landnr):
     except KeyError:
         pass
     try:
-        record['bbox'] = process['bbox']
+        record['bbox'] = [
+            isnet93_to_wgs84(*process['bbox'][0:2]),
+            isnet93_to_wgs84(*process['bbox'][2:4]),
+        ]
     except KeyError:
         pass
 
