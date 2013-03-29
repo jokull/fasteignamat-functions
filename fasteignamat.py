@@ -174,6 +174,10 @@ def fastanr_general_info(fastanr):
     xpath_address = '//div[@id="response"]/h2/text()'
     address = root.xpath(xpath_address)
     table = root.xpath(xpath)
+
+    if not len(address):
+        return None
+
     record = {}
     record['fastanumer_org'] = fastanr
     record['address'] = ' '.join(address[0].split())
